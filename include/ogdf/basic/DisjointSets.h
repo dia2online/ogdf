@@ -47,7 +47,7 @@
 #ifndef OGDF_DISJOINT_SETS_H
 #define OGDF_DISJOINT_SETS_H
 
-
+#include <cstring>
 #include <ogdf/basic/basic.h>
 
 

@@ -74,7 +74,7 @@ config = configparser.ConfigParser()
 print('Loading makeMakefile.config...')
 
 try:
-	config.readfp(open('makeMakefile.config'))
+	config.read_file(open('makeMakefile.config'))
 except IOError:
 	bailout('makeMakefile.config not found')
 
@@ -278,7 +278,7 @@ def Walk(curdir):
 					for v in versions:
 						# print target&depend: add full path spec, incl. version & ignore extra line
 						path = v.call() + '/' +fullname[:-len(name)]
-						makefile.write(path + targetAndDepend[:-1] + '\n')
+						makefile.write(path + targetAndDepend[:-1].decode('utf-8') + '\n')
 
 						# ensure folder
 						makefile.write('\t$(MKDIR) ' + v.call() + '/' + fullname[:-len(name)-1] + '\n')
